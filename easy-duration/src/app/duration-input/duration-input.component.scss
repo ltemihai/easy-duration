@@ -1,13 +1,16 @@
-.duration {
+.material {
   display: flex;
   flex-direction: column;
 
-  &__input {
+  .input {
 
   }
 
-  &__label {
+  .label {
     font-weight: 1000;
   }
 
+  .error {
+    color: red;
+  }
 }

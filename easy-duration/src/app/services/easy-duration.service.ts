@@ -36,6 +36,7 @@ export class EasyDurationService {
 
   arrayOfKeyValues = Object.values(this.keys);
   arrayOfKeys: string[] = Object.keys(this.keys);
+  acceptedKeys = ['0','1','2','3','4','5','6','7','8','9','s','m','h','d','M','Y'];
 
   constructor() { }
 
@@ -45,6 +46,10 @@ export class EasyDurationService {
 
   public getDataFromDisplayDate(value: string, type: EasyDurationTypes): string | EasyDuration {
     return type === EasyDurationTypes.Iso ? this.getISOFromDisplayDate(value) : this.getObjectFromDisplayDate(value);
+  }
+
+  public isInputValid(displayValue: string): boolean {
+    return [...displayValue].every(x => this.acceptedKeys.includes(x));
   }
 
   private getDisplayDateFromISO(value: string): string {

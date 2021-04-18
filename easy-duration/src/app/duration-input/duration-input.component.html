@@ -1,5 +1,11 @@
-<div class="duration">
-  <label class="duration__label">{{ label }}</label>
-  <input class="duration__input" [value]="displayValue" (change)="valueChanged($event.target)" [placeholder]="placeholder"/>
+<div [ngClass]="theme">
+  <label [ngClass]="theme" class="label">{{ label }}</label>
+  <input [ngClass]="theme" class="input"
+         [value]="displayValue"
+         (change)="valueChanged($event.target)"
+         [placeholder]="placeholder"/>
+</div>
+<div *ngIf="hasError" [ngClass]="theme" class="error">
+  Error!
 </div>
 
